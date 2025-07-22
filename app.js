@@ -33,15 +33,33 @@ async function createRecipe(newRecipe)
 
 const newRecipe =
 {
-    name: "Um Ali",
-    ingredients: ["Puff Pastry","Milk"],
+    name: "Um Ali 2",
+    ingredients: ["Puff Pastry","Milk", "Sugar"],
     instructions: "bake at 180C",
-    prepTime: 120,
-    difficulty: "Medium"
+    prepTime: 200,
+    difficulty: "Hard"
 }
 
-createRecipe(newRecipe);
+//createRecipe(newRecipe);
 
+
+async function getAllRecipes()
+{
+    try
+    {
+        const allRecipes = await Recipe.find();
+        allRecipes.forEach(recipe => 
+        {
+            console.log(`${recipe.name} is an ${recipe.difficulty} recipe and takes ${recipe.prepTime} minutes to prepare`);
+        });
+    }
+    catch(error)
+    {
+        console.log("Error: ")
+    }
+}
+
+getAllRecipes()
 
 /*
 try
