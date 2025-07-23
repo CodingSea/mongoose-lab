@@ -73,4 +73,17 @@ async function deleteRecipe(recipeId)
     }
 }
 
-module.exports = { connectToDatabase, createRecipe, getAllRecipes, updateRecipe, deleteRecipe };
+async function getRecipeById(id)
+{
+    try
+    {
+        const foundRecipe = await Recipe.findById(id);
+        console.log(foundRecipe);
+    }
+    catch(error)
+    {
+        console.log("No recipe with this ID exists.")
+    }
+}
+
+module.exports = { connectToDatabase, createRecipe, getAllRecipes, updateRecipe, deleteRecipe, getRecipeById };
