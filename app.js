@@ -1,30 +1,24 @@
 const mongoose = require("mongoose");
 const Recipe = require("./models/Recipe");
-const {createRecipe, getAllRecipes} = require("./recipeUtils");
+const { connectToDatabase, createRecipe, getAllRecipes, updateRecipe } = require("./recipeUtils");
 
 const newRecipe =
 {
-    name: "Um Ali 2",
-    ingredients: ["Puff Pastry","Milk", "Sugar"],
-    instructions: "bake at 180C",
+    name: "Um Yusuf 26",
+    ingredients: ["Milk", "Sugar"],
+    instructions: "bake at 80C",
     prepTime: 200,
-    difficulty: "Hard"
+    difficulty: "Easy"
 }
 
-//createRecipe(newRecipe);
+
+connectToDatabase();
+
+// createRecipe(newRecipe);
 
 
 
 getAllRecipes();
 
-/*
-try
-    {
 
-    }
-    catch(error)
-    {
-        console.log("Error: ")
-    }
-
-*/
+//updateRecipe("687fdfbd9d151446de15ad29", newRecipe);

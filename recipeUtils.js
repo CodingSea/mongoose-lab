@@ -15,7 +15,6 @@ async function connectToDatabase()
     }
 }
 
-connectToDatabase();
 
 
 async function createRecipe(newRecipe)
@@ -48,8 +47,29 @@ async function getAllRecipes()
     }
 }
 
-module.exports = 
+async function updateRecipe(recipeId, newRecipeData)
 {
-    createRecipe,
-    getAllRecipes
-};
+    try
+    {
+        const updatedRecipe = await Recipe.findByIdAndUpdate(recipeId, newRecipeData, { new:true });
+        console.log(updatedRecipe);
+    }
+    catch(error)
+    {
+        console.log("Error: could not update recipe")
+    }
+}
+
+module.exports = { connectToDatabase, createRecipe, getAllRecipes, updateRecipe };
+
+/*
+    try
+    {
+
+    }
+    catch(error)
+    {
+        console.log("Error: ")
+    }
+
+*/
