@@ -26,7 +26,7 @@ async function createRecipe(newRecipe)
     }
     catch(error)
     {
-        console.log("Failed to create recipe.")
+        console.log("Failed to create recipe.");
     }
 }
 
@@ -43,7 +43,7 @@ async function getAllRecipes()
     }
     catch(error)
     {
-        console.log("Error: could not get all recipes")
+        console.log("Error: could not get all recipes");
     }
 }
 
@@ -56,20 +56,21 @@ async function updateRecipe(recipeId, newRecipeData)
     }
     catch(error)
     {
-        console.log("Error: could not update recipe")
+        console.log("Error: could not update recipe");
     }
 }
 
-module.exports = { connectToDatabase, createRecipe, getAllRecipes, updateRecipe };
-
-/*
+async function deleteRecipe(recipeId)
+{
     try
     {
-
+        const deletedRecipe = await Recipe.findByIdAndDelete(recipeId);
+        console.log("Recipe successfully deleted.");
     }
     catch(error)
     {
-        console.log("Error: ")
+        console.log("Error: could not delete recipe");
     }
+}
 
-*/
+module.exports = { connectToDatabase, createRecipe, getAllRecipes, updateRecipe, deleteRecipe };

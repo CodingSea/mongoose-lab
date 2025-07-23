@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Recipe = require("./models/Recipe");
-const { connectToDatabase, createRecipe, getAllRecipes, updateRecipe } = require("./recipeUtils");
+const { connectToDatabase, createRecipe, getAllRecipes, updateRecipe, deleteRecipe } = require("./recipeUtils");
 
 const newRecipe =
 {
@@ -16,9 +16,9 @@ connectToDatabase();
 
 // createRecipe(newRecipe);
 
-
-
-getAllRecipes();
-
+//getAllRecipes();
 
 //updateRecipe("687fdfbd9d151446de15ad29", newRecipe);
+
+//deleteRecipe("687fdfbd9d151446de15ad29");
+
