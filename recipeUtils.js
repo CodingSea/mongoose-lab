@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const Recipe = require("./models/Recipe");
+const dotenv = require("dotenv").config();
 
 async function connectToDatabase()
 {
     try
     {
-        await mongoose.connect("mongodb+srv://Fahad:qq123123@cluster0.peyuckp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+        await mongoose.connect(process.env.stringDB);
         
         console.log("Connected to database!");
     }
